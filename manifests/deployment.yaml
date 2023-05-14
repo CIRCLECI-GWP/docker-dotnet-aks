@@ -16,7 +16,7 @@ spec:
         app: dotnetapi
     spec:
       nodeSelector:
-        "kubernetes.io/os": windows
+        "beta.kubernetes.io/os": windows
       containers:
         - name: dotnetapi-aks-app
           image: dotnetapi-aks-app
