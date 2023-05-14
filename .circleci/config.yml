@@ -23,10 +23,13 @@ jobs:
           name: Pull Updated code from repo
           command: |
             git pull origin $CIRCLE_BRANCH
-            sudo sed -i s/deb.debian.org/archive.debian.org/g /etc/apt/sources.list
-            sudo sed -i 's|security.debian.org|archive.debian.org/debian-security/|g' /etc/apt/sources.list 
-            sudo sed -i '/stretch-updates/d' /etc/apt/sources.list
-            sudo apt-get update
+      - run: |
+          sudo rm /etc/apt/sources.list
+          echo "deb http://archive.debian.org/debian/ jessie-backports main" | sudo tee -a /etc/apt/sources.list
+          echo "deb-src http://archive.debian.org/debian/ jessie-backports main" | sudo tee -a /etc/apt/sources.list
+          echo "Acquire::Check-Valid-Until false;" | sudo tee -a /etc/apt/apt.conf.d/10-nocheckvalid
+          echo 'Package: *\nPin: origin "archive.debian.org"\nPin-Priority: 500' | sudo tee -a /etc/apt/preferences.d/10-archive-pin
+          sudo apt-get update
       - azure-aks/update-kubeconfig-with-credentials:
           cluster-name: << parameters.cluster-name >>
           install-kubectl: true
