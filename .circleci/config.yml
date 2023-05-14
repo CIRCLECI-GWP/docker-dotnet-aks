@@ -11,11 +11,11 @@ jobs:
     parameters:
       cluster-name:
         description: |
-          DotnetAppCluster
+          Name of the AKS cluster
         type: string
       resource-group:
         description: |
-          AzureRG
+          Resource group that the cluster is in
         type: string
     steps:
       - checkout
