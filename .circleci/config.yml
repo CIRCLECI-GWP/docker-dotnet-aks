@@ -21,7 +21,12 @@ jobs:
       - checkout
       - run:
           name: Pull Updated code from repo
-          command: git pull origin $CIRCLE_BRANCH
+          command: |
+          git pull origin $CIRCLE_BRANCH
+          sudo sed -i s/deb.debian.org/archive.debian.org/g /etc/apt/sources.list
+          sudo sed -i s/deb.debian.org/archive.debian.org/g /etc/apt/sources.list.d/stretch-backports.list
+          sudo sed -i 's|security.debian.org|archive.debian.org|g' /etc/apt/sources.list
+          sudo sed -i '/stretch-updates/d' /etc/apt/sources.list
       - azure-aks/update-kubeconfig-with-credentials:
           cluster-name: << parameters.cluster-name >>
           install-kubectl: true
