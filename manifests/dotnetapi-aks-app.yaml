@@ -38,10 +38,10 @@ spec:
         app: dotnetapi
     spec:
       containers:
-      - image: yemiwebby/dotnetapi-aks-app:82d3cf37aab2ec2ddcab41684e07d3852782d853
+      - image: yemiwebby/dotnetapi-aks-app:983997b14d92b04de560f568b0b1554b8f6d8b7d
         name: dotnetapi-aks-app
         ports:
         - containerPort: 80
           name: http
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        kubernetes.io/os: windows
