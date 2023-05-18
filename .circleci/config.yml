@@ -8,7 +8,9 @@ orbs:
   kubernetes: circleci/kubernetes@0.4.0
 jobs:
   aks-deploy:
-    executor: azure-aks/default
+    docker:
+      - image: cimg/base:2023.05
+    # executor: azure-aks/default
     parameters:
       cluster-name:
         description: |
