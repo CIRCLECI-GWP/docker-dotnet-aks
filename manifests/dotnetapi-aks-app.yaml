@@ -38,7 +38,7 @@ spec:
         app: dotnetapi
     spec:
       containers:
-      - image: yemiwebby/dotnetapi-aks-app:b8e487c4242fe5084d2a1ce9ec8730910bede03b
+      - image: yemiwebby/dotnetapi-aks-app:ce3e175af345cf4d5580a196d40300aaa0c96907
         name: dotnetapi-aks-app
         ports:
         - containerPort: 80
