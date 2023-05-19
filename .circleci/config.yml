@@ -24,9 +24,6 @@ jobs:
           command: |
             git pull origin $CIRCLE_BRANCH
       - azure-aks/update-kubeconfig-with-credentials:
-      - run:
-          name: Verify Azure CLI is installed
-          command: az -v
           cluster-name: << parameters.cluster-name >>
           install-kubectl: true
           perform-login: true
