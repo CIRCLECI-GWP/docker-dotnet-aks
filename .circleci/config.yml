@@ -28,9 +28,13 @@ jobs:
           install-kubectl: true
           perform-login: true
           resource-group: << parameters.resource-group >>
+      - run:
+          command: |
+            kubectl get services
       - kubernetes/create-or-update-resource:
           resource-file-path: manifests/$APP_NAME.yaml
           resource-name: kustomization/$APP_NAME
+          show-kubectl-command: true
 
   bump-docker-tag-kustomize:
     docker:
@@ -46,7 +50,7 @@ jobs:
             $SUDO mv ./kustomize /usr/local/bin
       - checkout
       - run:
-          name: Bump Docker Tag
+          name: Bump Docker Tag.
           command: |
             cd manifests
             kustomize edit set image $APP_NAME=$DOCKER_LOGIN/$APP_NAME:$CIRCLE_SHA1
