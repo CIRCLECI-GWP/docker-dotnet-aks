@@ -8,4 +8,4 @@ namespace: dotnetapi
 images:
 - name: dotnetapi-aks-app
   newName: yemiwebby/dotnetapi-aks-app
-  newTag: 860eb795435493af353ba63bb1e0d7b6989c84b3
+  newTag: 8036f4db4a03cef81e6a0cc5ecbca44f7003af7e
