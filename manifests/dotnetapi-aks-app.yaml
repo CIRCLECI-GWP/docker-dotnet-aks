@@ -14,8 +14,8 @@ metadata:
   namespace: dotnetapi
 spec:
   ports:
-  - port: 80
-    targetPort: 5001
+  - port: 5001
+    targetPort: 80
   selector:
     app: dotnetapi
   type: LoadBalancer
@@ -38,10 +38,10 @@ spec:
         app: dotnetapi
     spec:
       containers:
-      - image: yemiwebby/dotnetapi-aks-app:f7f9788be33e020eccd99f4f8c335bc037251ff9
+      - image: yemiwebby/dotnetapi-aks-app:921f5bf68a42145e669ccb6f50e1035a8794bf7e
         name: dotnetapi-aks-app
         ports:
-        - containerPort: 5001
+        - containerPort: 80
           name: http
       nodeSelector:
         kubernetes.io/os: windows
