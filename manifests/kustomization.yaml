@@ -1,11 +1,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - deployment.yaml
-  - service.yaml
-  - namespace.yaml
+- deployment.yaml
+- service.yaml
+- namespace.yaml
 namespace: dotnetapi
 images:
-  - name: dotnetapi-aks-app
-    newName: dotnetapi-aks-app
-    newTag: v1
+- name: dotnetapi-aks-app
+  newName: yemiwebby/dotnetapi-aks-app
+  newTag: adea08eebe229ef3f0ec1bc92956c012d5bbd271
