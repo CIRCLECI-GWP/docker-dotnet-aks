@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    name: dotnetapi
+  name: dotnetapi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: dotnetapi
+  name: dotnetapi
+  namespace: dotnetapi
+spec:
+  ports:
+  - port: 80
+    targetPort: 5001
+  selector:
+    app: dotnetapi
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: dotnetapi
+  name: dotnetapi
+  namespace: dotnetapi
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dotnetapi
+  template:
+    metadata:
+      labels:
+        app: dotnetapi
+    spec:
+      containers:
+      - image: yemiwebby/dotnetapi-aks-app:0d50e03930cfdcdfb91ccf7a3a178fd7b020d3fb
+        name: dotnetapi-aks-app
+        ports:
+        - containerPort: 5001
+          name: http
+      nodeSelector:
+        kubernetes.io/os: windows
