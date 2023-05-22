@@ -81,12 +81,10 @@ jobs:
 workflows:
   Deploy-App-on-AKS:
     jobs:
-      - docker/publish:
-          image: $ACR_LOGIN_SERVER/$APP_NAME
-          tag: $CIRCLE_SHA1,latest
+      - build-docker-image
       - bump-docker-tag-kustomize:
           requires:
-            - docker/publish
+            - build-docker-image
       - aks-deploy:
           cluster-name: $CLUSTER_NAME
           resource-group: $RESOURCE_GROUP
