@@ -12,12 +12,12 @@ jobs:
       - checkout
       - setup_remote_docker:
           docker_layer_caching: true
-      -run:
-        name: Build and push Docker image
-        command: |
-          docker build -t $ACR_LOGIN_SERVER/$APP_NAME:$CIRCLE_SHA1 .
-          docker login -u $AZURE_SP -p $AZURE_SP_PASSWORD $ACR_LOGIN_SERVER
-          docker push ACR_LOGIN_SERVER/$APP_NAME:latest          
+      - run:
+          name: Build and push Docker image
+          command: |
+            docker build -t $ACR_LOGIN_SERVER/$APP_NAME:$CIRCLE_SHA1 .
+            docker login -u $AZURE_SP -p $AZURE_SP_PASSWORD $ACR_LOGIN_SERVER
+            docker push ACR_LOGIN_SERVER/$APP_NAME:latest
   aks-deploy:
     docker:
       - image: cimg/base:2023.05
