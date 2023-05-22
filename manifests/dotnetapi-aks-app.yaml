@@ -15,7 +15,7 @@ metadata:
 spec:
   ports:
   - port: 80
-    targetPort: 5001
+    targetPort: 80
   selector:
     app: dotnetapi
   type: LoadBalancer
@@ -38,7 +38,7 @@ spec:
         app: dotnetapi
     spec:
       containers:
-      - image: dotnetaksdemo.azurecr.io/dotnetapi-aks-app:e3d84d7fe43ca02f08b6943472e9464a89272887
+      - image: dotnetaksdemo.azurecr.io/dotnetapi-aks-app:51f11a686d810e83cae84c66e7c27a09a097627b
         name: dotnetapi-aks-app
         ports:
         - containerPort: 80

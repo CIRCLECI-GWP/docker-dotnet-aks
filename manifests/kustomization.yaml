@@ -8,4 +8,4 @@ namespace: dotnetapi
 images:
 - name: dotnetapi-aks-app
   newName: dotnetaksdemo.azurecr.io/dotnetapi-aks-app
-  newTag: e3d84d7fe43ca02f08b6943472e9464a89272887
+  newTag: 51f11a686d810e83cae84c66e7c27a09a097627b
