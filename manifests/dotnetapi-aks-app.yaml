@@ -38,10 +38,10 @@ spec:
         app: dotnetapi
     spec:
       containers:
-      - image: dotnetaksdemo.azurecr.io/dotnetapi-aks-app:98be40c2de8dc35f799fd1c5b01e800c80429dc4
+      - image: dotnetaksdemo.azurecr.io/dotnetapi-aks-app:e3d84d7fe43ca02f08b6943472e9464a89272887
         name: dotnetapi-aks-app
         ports:
-        - containerPort: 5001
+        - containerPort: 80
           name: http
       nodeSelector:
         beta.kubernetes.io/os: linux
