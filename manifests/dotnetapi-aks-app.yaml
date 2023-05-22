@@ -38,7 +38,7 @@ spec:
         app: dotnetapi
     spec:
       containers:
-      - image: yemiwebby/dotnetapi-aks-app:0d50e03930cfdcdfb91ccf7a3a178fd7b020d3fb
+      - image: dotnetaksdemo.azurecr.io/dotnetapi-aks-app:24775e82423af968e96811a761fd2e963fb48f5b
         name: dotnetapi-aks-app
         ports:
         - containerPort: 5001
