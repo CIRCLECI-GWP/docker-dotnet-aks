@@ -38,7 +38,7 @@ spec:
         app: dotnetapi
     spec:
       containers:
-      - image: dotnetaksdemo.azurecr.io/dotnetapi-aks-app:b37b28c3585d26f8c9a611733e7d64599c12b1b8
+      - image: dotnetaksdemo.azurecr.io/dotnetapi-aks-app:fcf9611ba1f54a8805ac50a9b8212f994ac0f86c
         name: dotnetapi-aks-app
         ports:
         - containerPort: 80
